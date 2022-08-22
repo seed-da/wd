@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>一个web app导航站</title>
+    <link href="/2022/08/21/webstack/"/>
+    <url>/2022/08/21/webstack/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://nav.jbg365.com/">https://nav.jbg365.com</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>web</tag>
+      
+      <tag>app</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Change npm source</title>
+    <link href="/2020/10/25/npm-to-taobao/"/>
+    <url>/2020/10/25/npm-to-taobao/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">npm config set registry https:<span class="hljs-comment">//registry.npm.taobao.org</span><br></code></pre></td></tr></table></figure><p>&#x2F;&#x2F; check the result</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">npm<span class="hljs-built_in"> config </span><span class="hljs-built_in">get</span> registry<br></code></pre></td></tr></table></figure><p>&#x2F;&#x2F;or</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">npm</span> <span class="hljs-literal">info</span> express<br></code></pre></td></tr></table></figure><p>How to remove taobao npm source</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">npm config <span class="hljs-keyword">delete</span> registry<br>npm config <span class="hljs-keyword">delete</span> disturl<br></code></pre></td></tr></table></figure><p>or</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">npm config edit<br></code></pre></td></tr></table></figure><p>Find two lines about taobao then delete</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo npm install -g cnpm --registry=https:<span class="hljs-regexp">//</span>registry.npm.taobao.org<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>nodejs</tag>
+      
+      <tag>npm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Blueman Protocol not available</title>
+    <link href="/2020/10/24/ubuntu-bluetooth/"/>
+    <url>/2020/10/24/ubuntu-bluetooth/</url>
+    
+    <content type="html"><![CDATA[<p>If your try to connect the bluetooth earpod, and get this:</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Connection Failed: blueman<span class="hljs-selector-class">.bluez</span><span class="hljs-selector-class">.errors</span><span class="hljs-selector-class">.DBusFailedError</span>: Protocol Not available<br></code></pre></td></tr></table></figure><p>then you can code this:</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-variable">$ </span>sudo apt-get install pulseaudio-<span class="hljs-keyword">module</span>-bluetooth<br><span class="hljs-variable">$ </span>pactl load-<span class="hljs-keyword">module</span> <span class="hljs-keyword">module</span>-bluetooth-discover<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>lubuntu</tag>
+      
+      <tag>bluetooth</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>how to completely uninstall docker</title>
+    <link href="/2020/06/26/how-to-uninstall-docker/"/>
+    <url>/2020/06/26/how-to-uninstall-docker/</url>
+    
+    <content type="html"><![CDATA[<p>step1:</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> autoremove docker docker-ce docker-engine  docker.io  containerd runc<br></code></pre></td></tr></table></figure><p>step2:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">dpkg -l <span class="hljs-string">| grep docker</span><br></code></pre></td></tr></table></figure><p>step3:</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">dpkg</span> -l |grep<span class="hljs-regexp"> ^rc|awk</span> <span class="hljs-string">&#x27;&#123;print <span class="hljs-variable">$2</span>&#125;&#x27;</span> |sudo xargs dpkg -P<br></code></pre></td></tr></table></figure><p>step4:</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> autoremove docker-ce-*<br></code></pre></td></tr></table></figure><p>step5:</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo rm -rf <span class="hljs-regexp">/etc/</span>systemd<span class="hljs-regexp">/system/</span>docker.service.d<br>sudo rm -rf <span class="hljs-regexp">/var/</span>lib/docker<br></code></pre></td></tr></table></figure><p>check:</p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">docker <span class="hljs-comment">--version</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>docker</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>python note01</title>
+    <link href="/2020/03/22/python-note01/"/>
+    <url>/2020/03/22/python-note01/</url>
+    
+    <content type="html"><![CDATA[<p>First：creat a file, named it to *** .py</p><p>and save these code in it, then saved</p><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs d"><span class="hljs-meta">#!/usr/bin/python3</span><br> <br>print(<span class="hljs-string">&quot;Hello, World!&quot;</span>)<br></code></pre></td></tr></table></figure><p>OK!</p><p>open a terminal, typing:</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python3</span> *** .<span class="hljs-keyword">py</span><br></code></pre></td></tr></table></figure><p>you will see this:</p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">Hello,</span> World!<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>edu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>fix-npm-install</title>
+    <link href="/2020/03/14/fix-npm-install/"/>
+    <url>/2020/03/14/fix-npm-install/</url>
+    
+    <content type="html"><![CDATA[<p>Try the following commands instead:</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install -g <span class="hljs-keyword">try</span>-thread-sleep<br><span class="hljs-built_in">npm</span> install -g yo --ignore-scripts spawn-sync<br></code></pre></td></tr></table></figure><p>Try the following command to fix:</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">chmod g+rwx <span class="hljs-regexp">/root/</span>.config<span class="hljs-regexp">/insight-nodejs/</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>test</tag>
+      
+      <tag>nodejs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>npm-update-x</title>
+    <link href="/2020/03/01/npm-update-x/"/>
+    <url>/2020/03/01/npm-update-x/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install -g <span class="hljs-built_in">npm</span>-check<br></code></pre></td></tr></table></figure><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install -g <span class="hljs-built_in">npm</span>-upgrade<br></code></pre></td></tr></table></figure><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span>-check<br></code></pre></td></tr></table></figure><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span>-upgrade<br></code></pre></td></tr></table></figure><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span>-update<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>nodejs</tag>
+      
+      <tag>xo</tag>
+      
+      <tag>web</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>视频测试--花木兰真人版预告片</title>
+    <link href="/2019/12/07/hmltttttttt/"/>
+    <url>/2019/12/07/hmltttttttt/</url>
+    
+    <content type="html"><![CDATA[<iframe height="480" width="600" src="//player.bilibili.com/player.html?aid=78166526&cid=133743474&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>test</tag>
+      
+      <tag>video</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>How to change sqlserver password in linux</title>
+    <link href="/2019/10/07/change-passwd-sqlserver/"/>
+    <url>/2019/10/07/change-passwd-sqlserver/</url>
+    
+    <content type="html"><![CDATA[<h4 id="1-stop-sql-server"><a href="#1-stop-sql-server" class="headerlink" title="1.stop sql-server"></a>1.stop sql-server</h4><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vbscript">sudo systemctl <span class="hljs-keyword">stop</span> mssql-<span class="hljs-built_in">server</span><br></code></pre></td></tr></table></figure><h4 id="2-open-dir"><a href="#2-open-dir" class="headerlink" title="2. open dir"></a>2. open dir</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd <span class="hljs-regexp">/opt/m</span>ssql/bin<br></code></pre></td></tr></table></figure><h4 id="3-check-the-information"><a href="#3-check-the-information" class="headerlink" title="3.check the information"></a>3.check the information</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./mssql-conf -h<br></code></pre></td></tr></table></figure><h4 id="4-change-the-password"><a href="#4-change-the-password" class="headerlink" title="4.change the password"></a>4.change the password</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">./mssql-<span class="hljs-keyword">conf</span> <span class="hljs-keyword">set</span>-<span class="hljs-keyword">sa</span>-password<br></code></pre></td></tr></table></figure><h4 id="5-reboot-sql-server"><a href="#5-reboot-sql-server" class="headerlink" title="5.reboot sql-server"></a>5.reboot sql-server</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo systemctl <span class="hljs-keyword">start</span> mssql-<span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>sqlserver</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>api-gc</title>
+    <link href="/2019/09/17/api-gc/"/>
+    <url>/2019/09/17/api-gc/</url>
+    
+    <content type="html"><![CDATA[<h4 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h4><ol><li><p><a href="https://www.it120.cc/">api工厂</a> 右上角注册免费开通您的专属后台</p><span id="more"></span></li><li><p>设置小程序名称 mallName</p><img src="https://cdn.it120.cc/apifactory/2019/04/12/0f472c5d8ecc3719a940cd052630499a.png"></li><li><p>上传 banner 轮播图片</p><img src="https://cdn.it120.cc/apifactory/2019/04/12/92ee8b39efea11c7a4b53d30480073d1.png"></li><li><p>设置小程序 appid 和 secret</p><img src="https://cdn.it120.cc/apifactory/2019/04/12/dcfd73bf82d6dc77aaedaa3b313ce5f5.png"></li><li><p>数据维护</p><img src="https://cdn.it120.cc/apifactory/2019/04/12/e4520d8e4d67728f3a610e7e7d4029f3.png"></li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>小程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一个图片外链的测试</title>
+    <link href="/2019/05/27/test003/"/>
+    <url>/2019/05/27/test003/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558937297744&di=ec69c5337e6bf86eeab47ac6f27b500d&imgtype=0&src=http://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/9c16fdfaaf51f3debd1d0bd195eef01f3b2979d3.jpg" alt="GUNDAM EXIA"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>测试</tag>
+      
+      <tag>blog</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>测试传说中Linux上最好用的Markdown编辑器Typora</title>
+    <link href="/2019/05/18/test-Typora/"/>
+    <url>/2019/05/18/test-Typora/</url>
+    
+    <content type="html"><![CDATA[<h3 id="step1"><a href="#step1" class="headerlink" title="step1:"></a>step1:</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># or run:</span><br><span class="hljs-comment"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br>wget -qO - https:<span class="hljs-regexp">//</span>typora.io<span class="hljs-regexp">/linux/</span>public-key.asc | sudo apt-key add -<br></code></pre></td></tr></table></figure><h3 id="step2"><a href="#step2" class="headerlink" title="step2:"></a>step2:</h3><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs smali"><span class="hljs-comment"># add Typora&#x27;s repository</span><br>sudo<span class="hljs-built_in"> add-apt-repository </span>&#x27;deb https://typora.io/linux ./&#x27;<br>sudo apt-get update<br></code></pre></td></tr></table></figure><h3 id="step3"><a href="#step3" class="headerlink" title="step3:"></a>step3:</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># install typora</span><br>sudo apt-<span class="hljs-built_in">get</span> install typora<br></code></pre></td></tr></table></figure><p>这样就安装完成了！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Install Clipgrab On Ubuntu</title>
+    <link href="/2019/05/02/install-clipgrab/"/>
+    <url>/2019/05/02/install-clipgrab/</url>
+    
+    <content type="html"><![CDATA[<h5 id="1-Run-this-command-to-add-the-ppa-repository-to-your-system"><a href="#1-Run-this-command-to-add-the-ppa-repository-to-your-system" class="headerlink" title="1.) Run this command to add the ppa repository to your system:"></a>1.) Run this command to add the ppa repository to your system:</h5><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smali">sudo<span class="hljs-built_in"> add-apt-repository </span>ppa:clipgrab-team/ppa<br></code></pre></td></tr></table></figure><h5 id="2-Update-the-package-lists-to-make-it-available"><a href="#2-Update-the-package-lists-to-make-it-available" class="headerlink" title="2.) Update the package lists to make it available:"></a>2.) Update the package lists to make it available:</h5><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span><br></code></pre></td></tr></table></figure><h5 id="3-Finally-install-it-via"><a href="#3-Finally-install-it-via" class="headerlink" title="3.) Finally install it via:"></a>3.) Finally install it via:</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-built_in">get</span> install clipgrab<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>手动安装java以及环境配置</title>
+    <link href="/2019/05/02/java-sdaz/"/>
+    <url>/2019/05/02/java-sdaz/</url>
+    
+    <content type="html"><![CDATA[<h5 id="1-修改环境变量"><a href="#1-修改环境变量" class="headerlink" title="1.修改环境变量"></a>1.修改环境变量</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vi ~/.bashrc<br></code></pre></td></tr></table></figure><h5 id="在文件末尾追加下面内容："><a href="#在文件末尾追加下面内容：" class="headerlink" title="在文件末尾追加下面内容："></a>在文件末尾追加下面内容：</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment">#set oracle jdk environment</span><br><span class="hljs-built_in">export</span> <span class="hljs-attribute">JAVA_HOME</span>=/usr/lib/jvm/jdk1.8.0_144  ## 这里要注意目录要换成自己解压的jdk 目录<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">JRE_HOME</span>=<span class="hljs-variable">$&#123;JAVA_HOME&#125;</span>/jre  <br><span class="hljs-built_in">export</span> <span class="hljs-attribute">CLASSPATH</span>=.:$&#123;JAVA_HOME&#125;/lib:<span class="hljs-variable">$&#123;JRE_HOME&#125;</span>/lib  <br><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-variable">$&#123;JAVA_HOME&#125;</span>/bin:$PATH <br></code></pre></td></tr></table></figure><h5 id="2-使环境变量马上生效："><a href="#2-使环境变量马上生效：" class="headerlink" title="2.使环境变量马上生效："></a>2.使环境变量马上生效：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure><h5 id="3-系统注册此jdk"><a href="#3-系统注册此jdk" class="headerlink" title="3.系统注册此jdk"></a>3.系统注册此jdk</h5><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo update-alternatives –install <span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/java java /u</span>sr<span class="hljs-regexp">/lib/</span>jvm<span class="hljs-regexp">/jdk1.7.0_60/</span>bin/java <span class="hljs-number">300</span><br></code></pre></td></tr></table></figure><h5 id="查看java版本，看看是否安装成功："><a href="#查看java版本，看看是否安装成功：" class="headerlink" title="查看java版本，看看是否安装成功："></a>查看java版本，看看是否安装成功：</h5><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure><p>DEB版本安装后续：</p><h6 id="需要检查并生成环境变量"><a href="#需要检查并生成环境变量" class="headerlink" title="需要检查并生成环境变量"></a>需要检查并生成环境变量</h6><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo update-alternatives --install <span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/java java /u</span>sr<span class="hljs-regexp">/lib/</span>jvm<span class="hljs-regexp">/jdk-13.0.1/</span>bin/java <span class="hljs-number">2</span><br>sudo update-alternatives --config java<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>linux下java版本管理工具jenv使用介绍</title>
+    <link href="/2019/05/02/java-env-ubuntu/"/>
+    <url>/2019/05/02/java-env-ubuntu/</url>
+    
+    <content type="html"><![CDATA[<h6 id="不同的项目使用的java版本不同，每次切换时都需要手动去修改java的环境变量，麻烦至极。jenv可以管理java版本，轻松实现管理多个java的问题。"><a href="#不同的项目使用的java版本不同，每次切换时都需要手动去修改java的环境变量，麻烦至极。jenv可以管理java版本，轻松实现管理多个java的问题。" class="headerlink" title="不同的项目使用的java版本不同，每次切换时都需要手动去修改java的环境变量，麻烦至极。jenv可以管理java版本，轻松实现管理多个java的问题。"></a>不同的项目使用的java版本不同，每次切换时都需要手动去修改java的环境变量，麻烦至极。jenv可以管理java版本，轻松实现管理多个java的问题。</h6><h5 id="一、下载jenv"><a href="#一、下载jenv" class="headerlink" title="一、下载jenv"></a>一、下载jenv</h5><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/gcuisinier/</span>jenv.git ~/.jenv<br></code></pre></td></tr></table></figure><h5 id="二、配入环境变量"><a href="#二、配入环境变量" class="headerlink" title="二、配入环境变量"></a>二、配入环境变量</h5><figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs julia">$ echo &#x27;<span class="hljs-keyword">export</span> PATH=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.jenv/bin:<span class="hljs-variable">$PATH</span>&quot;</span>&#x27; &gt;&gt; ~/.bash_profile<br></code></pre></td></tr></table></figure><h5 id="三、执行-jenv-init-命令，这样每打开一个-bash-终端就可以调用-jenv-命令，并且默认执行一次-jenv-init-命令。"><a href="#三、执行-jenv-init-命令，这样每打开一个-bash-终端就可以调用-jenv-命令，并且默认执行一次-jenv-init-命令。" class="headerlink" title="三、执行 jenv init -命令，这样每打开一个 bash 终端就可以调用 jenv 命令，并且默认执行一次 jenv init - 命令。"></a>三、执行 jenv init -命令，这样每打开一个 bash 终端就可以调用 jenv 命令，并且默认执行一次 jenv init - 命令。</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;eval &quot;$(jenv init -)&quot;&#x27;</span> &gt;&gt; ~/.bash_profile</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">source</span> ~/.bash_profile</span><br></code></pre></td></tr></table></figure><h5 id="四、查看当前的java版本，输出是1-8-0-44"><a href="#四、查看当前的java版本，输出是1-8-0-44" class="headerlink" title="四、查看当前的java版本，输出是1.8.0_44"></a>四、查看当前的java版本，输出是1.8.0_44</h5><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">$ java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure><h5 id="五、找到jdk1-8和jdk1-7的文件夹路径，加入到jenv的管理库："><a href="#五、找到jdk1-8和jdk1-7的文件夹路径，加入到jenv的管理库：" class="headerlink" title="五、找到jdk1.8和jdk1.7的文件夹路径，加入到jenv的管理库："></a>五、找到jdk1.8和jdk1.7的文件夹路径，加入到jenv的管理库：</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">$ jenv <span class="hljs-keyword">add</span><span class="language-bash"> /opt/Java/jdk1.8.0_144</span><br>$ jenv <span class="hljs-keyword">add</span><span class="language-bash"> /opt/Java/jdk1.7.0_80</span><br></code></pre></td></tr></table></figure><h5 id="六、查看已经添加的java版本"><a href="#六、查看已经添加的java版本" class="headerlink" title="六、查看已经添加的java版本"></a>六、查看已经添加的java版本</h5><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crystal"><span class="hljs-variable">$ </span>jenv versions<br></code></pre></td></tr></table></figure><h5 id="七、配置要使用的JVM。有三种方式：global：按全局、lacal：按目录、shell：shell"><a href="#七、配置要使用的JVM。有三种方式：global：按全局、lacal：按目录、shell：shell" class="headerlink" title="七、配置要使用的JVM。有三种方式：global：按全局、lacal：按目录、shell：shell"></a>七、配置要使用的JVM。有三种方式：global：按全局、lacal：按目录、shell：shell</h5><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">$ jenv <span class="hljs-keyword">global</span> jdk1<span class="hljs-number">.7</span><span class="hljs-number">.0</span>_80<br></code></pre></td></tr></table></figure><h5 id="或"><a href="#或" class="headerlink" title="或"></a>或</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">jenv <span class="hljs-built_in">local</span> jdk1.7.0_80</span><br></code></pre></td></tr></table></figure><h5 id="或-1"><a href="#或-1" class="headerlink" title="或"></a>或</h5><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">$ <span class="hljs-keyword">jenv </span><span class="hljs-keyword">shell </span><span class="hljs-keyword">jdk1.7.0_80</span><br></code></pre></td></tr></table></figure><h5 id="八、查看当前java版本。发现版本已经变成了jdk1-7-0-80"><a href="#八、查看当前java版本。发现版本已经变成了jdk1-7-0-80" class="headerlink" title="八、查看当前java版本。发现版本已经变成了jdk1.7.0_80"></a>八、查看当前java版本。发现版本已经变成了jdk1.7.0_80</h5><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">$ java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure><h5 id="至此，以后再也不用自己手动修改环境变量改变java版本了。"><a href="#至此，以后再也不用自己手动修改环境变量改变java版本了。" class="headerlink" title="至此，以后再也不用自己手动修改环境变量改变java版本了。"></a>至此，以后再也不用自己手动修改环境变量改变java版本了。</h5>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>怀念一下我的博客</title>
+    <link href="/2019/04/19/test111111/"/>
+    <url>/2019/04/19/test111111/</url>
+    
+    <content type="html"><![CDATA[<p>这是一个没有没有内容的东西，就是测试一下，怀念一下。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>我是谁</tag>
+      
+      <tag>我在哪</tag>
+      
+      <tag>我在干嘛</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Run chrome as root</title>
+    <link href="/2019/01/13/chrome-on-root/"/>
+    <url>/2019/01/13/chrome-on-root/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/usr/</span>bin/google-chrome<br></code></pre></td></tr></table></figure><p>set:<br>exec -a “$0” “$HERE&#x2F;chrome” “$@” </p><p>into:<br>exec -a “$0” “$HERE&#x2F;chrome” “$@” –user-data-dir –no-sandbox</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>chrome</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>当出现 not supported between instances of &#39;str&#39; and &#39;int&#39; 的错误时</title>
+    <link href="/2019/01/12/python-number001/"/>
+    <url>/2019/01/12/python-number001/</url>
+    
+    <content type="html"><![CDATA[<p>这是因为input()返回的数据类型是str类型，不能直接和整数进行比较，必须先把str转换成整型，使用int()方法：age &#x3D; int(input (“请输入你的年龄:”))</p><p>即可！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MAC在Docker上安装centos以及运行</title>
+    <link href="/2019/01/06/docker-install-cent/"/>
+    <url>/2019/01/06/docker-install-cent/</url>
+    
+    <content type="html"><![CDATA[<p>安装docker部分省略，参考官方网站。</p><h4 id="一、安装centos"><a href="#一、安装centos" class="headerlink" title="一、安装centos"></a>一、安装centos</h4><p><code>docker pull centos:6 #数字是说要安装哪个版本的centos</code></p><h4 id="二、运行docker里的centos"><a href="#二、运行docker里的centos" class="headerlink" title="二、运行docker里的centos"></a>二、运行docker里的centos</h4><p><code>docker run --privileged=true -it centos:6 #--privileged是以获取系统权限的形式运行， -it是互动模式，跟本地的系统进行交互,调用的本地的终端</code></p><h4 id="三、注意"><a href="#三、注意" class="headerlink" title="三、注意"></a>三、注意</h4><p>如果需要退出，直接用 exit 就可以退出，但是docker是不会保存你再容器中做过的修改的，第二次进来容器，之前安装过的东西都得重新安装一遍，那怎么办呢</p><p>解决办法</p><p>在未退出来之前，另开一个窗口</p><p>先 docker ps</p><p>你可以看到里面的ID编码和容器名称</p><p>然后docker commit d83c4279f146 centos:6 #d83c4279f146是CONTAINER ID，centos:6是IMAGE，容器名</p><p>看到生成一串sha256码就说明保存成功了，现在可以回到原窗口（运行centos那个）输入exit退出。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>MAC</tag>
+      
+      <tag>docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ubuntu全盘备份与恢复，亲自总结，实测可靠</title>
+    <link href="/2019/01/05/ubuntu-%E5%A4%87%E4%BB%BD/"/>
+    <url>/2019/01/05/ubuntu-%E5%A4%87%E4%BB%BD/</url>
+    
+    <content type="html"><![CDATA[<p>初学者在使用Ubuntu这类Linux操作系统时，常常会由于不当操作导致系统崩溃，重装系统是难免的事情。重装系统虽然简单，但是各种软件&#x2F;环境重新下载、配置相当占用时间，因此有必要对系统同进行备份，以避免将来连哭的地方都找不到。本教程已经由JK小僧在计算机上亲自实践，可以恢复之前Ubuntu系统上的各类软件和环境配置，方法简单，值得推广：</p><h4 id="一、备份系统"><a href="#一、备份系统" class="headerlink" title="一、备份系统"></a>一、备份系统</h4><p><em>使用TAR。和Windows不同，Linux不会限制root访问任何东西，你可以把分区上的所有东西都扔到一个TAR文件里去</em></p><ol><li><p>打开一个终端，并运行 sudo su（回车后要求输入密码）；</p></li><li><p>继续在终端中输入以下指令，进入系统根目录：</p></li></ol><p><code>$ cd /</code></p><p> 开始备份系统，在终端中输入：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">$ tar cvpzf backup.tgz <span class="hljs-attribute">--exclude</span>=/proc <span class="hljs-attribute">--exclude</span>=/lost+found <span class="hljs-attribute">--exclude</span>=/backup.tgz <span class="hljs-attribute">--exclude</span>=/mnt <span class="hljs-attribute">--exclude</span>=/sys <span class="hljs-attribute">--exclude</span>=/media /<br></code></pre></td></tr></table></figure><p>让我们来简单看一下这个命令：</p><ul><li>‘tar’ 是用来备份的程序</li><li>c - 新建一个备份文档</li><li>v - 详细模式， tar程序将在屏幕上实时输出所有信息。</li><li>p - 保存许可，并应用到所有文件。</li><li>z - 采用‘gzip’压缩备份文件，以减小备份文件体积。</li><li>f - 说明备份文件存放的路径， Ubuntu.tgz 是本例子中备份文件名。</li><li>“&#x2F;”是我们要备份的目录，在这里是整个文件系统。</li><li>在档案文件名“backup.tgz”和要备份的目录名“&#x2F;”之间给出了备份时必须排除在外的目录。有些目录是无用的，例如“&#x2F;proc”、“&#x2F;lost+ found”、“&#x2F;sys”。当然，“backup.tgz”这个档案文件本身必须排除在外，否则你可能会得到一些超出常理的结果。如果不把“&#x2F;mnt”排除在外，那么挂载在“&#x2F;mnt”上的其它分区也会被备份。另外需要确认一下“&#x2F;media”上没有挂载任何东西(例如光盘、移动硬盘)，如果有挂载东西， 必须把“&#x2F;media”也排除在外.</li><li>备份完成后，在文件系统的根目录将生成一个名为“backup.tgz”的文件，它的尺寸有可能非常大。现在你可以把它烧录到DVD上或者放到你认为安全的地方去。</li><li>在备份命令结束时你可能会看到这样一个提示：’tar: Error exit delayed from previous errors’，多数情况下你可以忽略它。</li></ul><h4 id="二、恢复系统"><a href="#二、恢复系统" class="headerlink" title="二、恢复系统"></a>二、恢复系统</h4><ol><li><p>如果原来的Ubuntu系统已经崩溃，无法进入。则可以使用Ubuntu安装U盘（live USB）进入试用Ubuntu界面。</p></li><li><p>切换到root用户，找到之前Ubuntu系统的根目录所在磁盘分区（一般电脑上的磁盘分区（假设分区名称为sdaX）均可以在当前Ubuntu系统的根目录下的media目录下（即&#x2F;media）找到。目录通常为当前根目录下 cd &#x2F;media&#x2F;磁盘名称&#x2F;分区名称）。进入该分区，输入以下指令来删除该根目录下的所有文件：<br><code>$ sudo rm -rf /media/磁盘名称/分区名称*</code></p></li><li><p>将备份文件”backup.tgz”拷入该分区；<br><code>$ sudo cp -i backup.tgz /media/磁盘名/分区名sdaX</code></p></li><li><p>进入分区并将压缩文件解压缩，参数x是告诉tar程序解压缩备份文件。<br><code>$ sudo tar xvpfz backup.tgz</code></p></li><li><p>重新创建那些在备份时被排除在外的目录；<br><code>$ sudo mkdir proc lost+found mnt sys media</code></p></li></ol><p>或者这样：<br>mkdir proc<br>mkdir lost+found<br>mkdir mnt<br>mkdir sys</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>python笔记一号</title>
+    <link href="/2019/01/04/python001/"/>
+    <url>/2019/01/04/python001/</url>
+    
+    <content type="html"><![CDATA[<p>笔记现在开始，首先，打印出一个东西：</p><figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python-repl"><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Hello Python&#x27;</span>)</span><br>Hello Python<br></code></pre></td></tr></table></figure><p>就是这样。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>sdkman  好东西,用过的都说好</title>
+    <link href="/2018/12/25/sdkman-install/"/>
+    <url>/2018/12/25/sdkman-install/</url>
+    
+    <content type="html"><![CDATA[<p>Installing SDKMAN! on UNIX-like platforms is as easy as ever. SDKMAN! installs smoothly on Mac OSX, Linux, Cygwin, Solaris and FreeBSD. We also support Bash and ZSH shells.<br>Simply open a new terminal and enter:</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">curl</span> <span class="hljs-literal">-s</span> <span class="hljs-string">&quot;https://get.sdkman.io&quot;</span> | bash<br></code></pre></td></tr></table></figure><p>Follow the instructions on-screen to complete installation.<br>Next, open a new terminal or enter:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">source</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.sdkman/bin/sdkman-init.sh&quot;</span></span><br></code></pre></td></tr></table></figure><p>Lastly, run the following code snippet to ensure that installation succeeded:</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">$ sdk <span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure><p>If all went well, the version should be displayed. Something like:</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sdkman</span> <span class="hljs-number">5</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>+<span class="hljs-number">51</span><br></code></pre></td></tr></table></figure><p>URL： <a href="https://sdkman.io/install">https://sdkman.io/install</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Deepin-Ubunt无法找到add-apt-repository解决方法</title>
+    <link href="/2018/08/25/deepin-bao/"/>
+    <url>/2018/08/25/deepin-bao/</url>
+    
+    <content type="html"><![CDATA[<p>网上查了一下资料，原来是需要</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">python-software-properties</span><br></code></pre></td></tr></table></figure><p>于是</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">apt-<span class="hljs-built_in">get</span> install python-software-<span class="hljs-built_in">properties</span><br></code></pre></td></tr></table></figure><p>除此之外还要安装</p><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">software</span>-properties-<span class="hljs-meta">common</span><br></code></pre></td></tr></table></figure><p>于是</p><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">apt</span>-<span class="hljs-meta">get</span> install software-properties-<span class="hljs-meta">common</span><br></code></pre></td></tr></table></figure><p>然后就能用add-apt-repository了</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+      <tag>deepin</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>视频测试-长征五号</title>
+    <link href="/2018/04/27/film0001/"/>
+    <url>/2018/04/27/film0001/</url>
+    
+    <content type="html"><![CDATA[<iframe height=498 width=510 src='http://player.youku.com/embed/XMzU2Mzk3MTkyNA==' frameborder=0 'allowfullscreen'></iframe>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>test</tag>
+      
+      <tag>video</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>连接服务器被拒绝</title>
+    <link href="/2018/04/06/ssh-dn/"/>
+    <url>/2018/04/06/ssh-dn/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">ssh</span>-keygen -R +输入服务器的<span class="hljs-built_in">IP</span><br><br></code></pre></td></tr></table></figure><p>出现提示：</p><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs livescript">Are you sure you want <span class="hljs-keyword">to</span> <span class="hljs-keyword">continue</span> connecting (<span class="hljs-literal">yes</span>/<span class="hljs-literal">no</span>)?<br><br></code></pre></td></tr></table></figure><p>输入yes就可以了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>configure 权限不够</title>
+    <link href="/2018/02/08/quanxianbz/"/>
+    <url>/2018/02/08/quanxianbz/</url>
+    
+    <content type="html"><![CDATA[<p>linux下运行一个文件时 提示权限不够，说明这个文件没有可执行权限<br>我们可以在属性里面手动为这个文件加上可执行权限也可以使用命令的方式</p><p>命令方式：<br>例如：<br><code>bash: ./configure: 权限不够</code><br>给文件加上可执行权限：<br><code>chmod +x configure</code><br>再输入 <code>./configure</code> 就可以了;</p><p>当然也可以右键属性设置；<br>双系统要放置到Ubuntu系统中；</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>服务器版Ubuntu启用WIFI</title>
+    <link href="/2018/02/08/ubserverwifi/"/>
+    <url>/2018/02/08/ubserverwifi/</url>
+    
+    <content type="html"><![CDATA[<p>最近把曾经不用的上网本安装了一个Ubuntu-Server版，当成服务器来用，因为家庭网络布线问题，只好用自带的WIFI来连接网络，Server版也没有什么图形化的管理工具，之后手动编辑配置文件了。<br>Server下面配置起来还是很方便的，首先安装连接WIFI需要的软件包：</p><p><code>sudo apt-get install wpasupplicant</code></p><p>然后编辑&#x2F;etc&#x2F;network&#x2F;interfaces文件，添加以下内容：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">auto</span> wlan0<br><br>iface wlan0 inet dhcp<br><br>wpa-ssid xxxxxx<br><br>wpa-psk <span class="hljs-number">12345678</span><br></code></pre></td></tr></table></figure><p>其中wpa-ssid这行就是你的WIFI名称，最好是英文，wpa-psk就是你的WIFI连接密码，其中wlan0是WIFI接口名，请根据你的实际接口名填写。</p><p>这个配置是通过DHCP自动配置ip地址以及DNS，如果想要手动设置内容改成这样：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">auto</span> wlan0<br><br><span class="hljs-attribute">iface</span> wlan0 inet static<br><br><span class="hljs-attribute">address</span> <span class="hljs-number">192.168.1.2</span><br><br><span class="hljs-attribute">netmask</span> <span class="hljs-number">255.255.255.0</span><br><br><span class="hljs-attribute">gateway</span> <span class="hljs-number">192.168.1.1</span><br><br><span class="hljs-attribute">dns</span>-nameservers <span class="hljs-number">192.168.1.1</span> <span class="hljs-number">114.114.114.114</span><br><br><span class="hljs-attribute">wpa</span>-ssid xxxx<br><br><span class="hljs-attribute">wpa</span>-psk <span class="hljs-number">12345678</span><br></code></pre></td></tr></table></figure><p>修改好了之后执行下面命令启用WIFI：</p><p>首先关闭WIFI</p><p><code>sudo ifdown wlan0</code></p><p>然后启用WIFI</p><p><code>sudo ifup -v wlan0</code></p><p>现在WIFI已经连接上来，而且重启后也会自动连接。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mac下node.js卸载方法收集</title>
+    <link href="/2018/02/08/mac-un-node/"/>
+    <url>/2018/02/08/mac-un-node/</url>
+    
+    <content type="html"><![CDATA[<h3 id="brew的安装方式"><a href="#brew的安装方式" class="headerlink" title="brew的安装方式"></a>brew的安装方式</h3><p>直接通过一条命令<br><code>brew uninstall nodejs</code></p><h3 id="官网下载pkg安装包的"><a href="#官网下载pkg安装包的" class="headerlink" title="官网下载pkg安装包的"></a>官网下载pkg安装包的</h3><p>通过这条命令<br><code>sudo rm -rf /usr/local/&#123;bin/&#123;node,npm&#125;,lib/node_modules/npm,lib/node,share/man/*/node.*&#125;</code></p><h3 id="其它方式干净卸载"><a href="#其它方式干净卸载" class="headerlink" title="其它方式干净卸载"></a>其它方式干净卸载</h3><p>去这个网址下载sh文件：<br><a href="https://github.com/jesseyu/uninstallNodejs/blob/master/uninstallNodejs.sh">https://github.com/jesseyu/uninstallNodejs/blob/master/uninstallNodejs.sh</a></p><p>内容为：</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle">#!<span class="hljs-regexp">/bin/</span>bash<br>lsbom -f -l -s -pf <span class="hljs-regexp">/var/</span>db<span class="hljs-regexp">/receipts/</span>org.nodejs.pkg.bom \<br>| <span class="hljs-keyword">while</span> <span class="hljs-keyword">read</span> i; <span class="hljs-keyword">do</span><br>  sudo rm <span class="hljs-regexp">/usr/</span>local/$&#123;i&#125;<br>done<br>sudo rm -rf <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/lib/</span>node \<br>     <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/lib/</span>node_modules \<br>     <span class="hljs-regexp">/var/</span>db<span class="hljs-regexp">/receipts/</span>org.nodejs.*<br></code></pre></td></tr></table></figure><p>下载回来的文件需要修改权限，输入：<br><code>chmod 777 uninstallNodejs.sh</code></p><p>然后在终端运行此文件</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>nodejs</tag>
+      
+      <tag>Mac</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>修复 Telegram 中文输入</title>
+    <link href="/2017/09/15/xiufu-tele/"/>
+    <url>/2017/09/15/xiufu-tele/</url>
+    
+    <content type="html"><![CDATA[<p>最新版本的telegram在Ubuntu下无法使用搜狗输入法来输入中文，上网找了一下方法，找到一个完美解决了问题。</p><p>步骤如下：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">编辑 ~<span class="hljs-regexp">/.local/</span>share<span class="hljs-regexp">/applications/</span>telegramdesktop.desktop 文件<br>修改 Exec 该行，添加环境变量 env QT_IM_MODULE=ibus ，使用 fcitx 的用户，把 ibus 替换成 fcitx<br><br></code></pre></td></tr></table></figure><p>最后修改效果如图</p><p><img src="https://ww2.sinaimg.cn/large/a15b4afegy1fhjn68w3c2j20qp0ifwg8"></p><p>设置完毕后，保存该文件并重启telegram即可。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>sublime text 3143 授权码</title>
+    <link href="/2017/09/15/sublime-li/"/>
+    <url>/2017/09/15/sublime-li/</url>
+    
+    <content type="html"><![CDATA[<p>sublime text3 3143 在2017年9月13号进行的更新，之前的license key都不能用了，分享一个新的</p><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs dns">—– BEGIN LICENSE —–<br>TwitterInc<br><span class="hljs-number">200</span> User License<br>EA7E-<span class="hljs-number">890007</span><br><span class="hljs-number">1</span>D77F72E <span class="hljs-number">390</span>CDD93 <span class="hljs-number">4</span>DCBA022 FAF60790<br><span class="hljs-number">61</span>AA12C0 <span class="hljs-keyword">A</span><span class="hljs-number">37081C5</span> D<span class="hljs-number">0316412</span> <span class="hljs-number">4584D136</span><br><span class="hljs-number">94D7F7D4</span> <span class="hljs-number">95</span>BC8C1C <span class="hljs-number">527</span>DA828 <span class="hljs-number">560</span>BB037<br>D1EDDD8C AE7B379F <span class="hljs-number">50</span>C9D69D B35179EF<br><span class="hljs-number">2</span>FE898C4 <span class="hljs-number">8E4277A8</span> <span class="hljs-number">555</span>CE714 E1FB0E43<br>D<span class="hljs-number">5D52613</span> C3D12E98 BC49967F <span class="hljs-number">7652</span>EED2<br><span class="hljs-number">9D2D2E61</span> <span class="hljs-number">67610860</span> <span class="hljs-number">6D338B72</span> <span class="hljs-number">5</span>CF95C69<br>E36B85CC <span class="hljs-number">84991F19</span> <span class="hljs-number">7575D828</span> <span class="hljs-number">470</span>A92AB<br>—— END LICENSE ——<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>解决Ubuntu下Sublime Text 3无法输入中文</title>
+    <link href="/2017/09/14/sublimezwsr/"/>
+    <url>/2017/09/14/sublimezwsr/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>sublime很好用，但是ubuntu下不能输入中文，这是一个很大的问题。不知道为什么开发者一直也不解决，好在还是有高手在，总能找到方法。网上方法很多，但是也很乱，现在我将自己的经验总结一下。</p><h3 id="最简单的方法"><a href="#最简单的方法" class="headerlink" title="最简单的方法"></a>最简单的方法</h3><p>使用git克隆以下工具<br><code>git clone https://github.com/lyfeyaj/sublime-text-imfix.git </code></p><p>然后在终端中打开它<br><code>cd sublime-text-imfix</code></p><p>然后输入以下内容<br><code>./sublime-imfix</code></p><p>好了，接下来应该能够输入中文了<br><img src="https://github.com/hackskylin/sublime-text-imfix/raw/master/image/fcitx.png"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一键更新内核并安装bbr</title>
+    <link href="/2017/09/14/yjazbbr/"/>
+    <url>/2017/09/14/yjazbbr/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget --no-check-certificate https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/teddysun/</span>across<span class="hljs-regexp">/raw/m</span>aster<span class="hljs-regexp">/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./</span>bbr.sh<br><br></code></pre></td></tr></table></figure><p>18.04开启自带bbr：</p><p><code>echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</code><br>保存生效：<br><code>sysctl -p</code><br>查看是否已开启bbr：<br><code>sysctl net.ipv4.tcp_available_congestion_control</code><br>查看是否启动了bbr：<br><code>lsmod | grep bbr</code><br>安装完成后，脚本会提示需要重启 VPS，输入 y 并回车后重启。<br>重启完成后，进入 VPS，验证一下是否成功安装最新内核并开启 TCP BBR，输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">uname</span> -r<br><br></code></pre></td></tr></table></figure><p>查看内核版本，含有 4.12 就表示 OK 了</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sysctl net<span class="hljs-selector-class">.ipv4</span><span class="hljs-selector-class">.tcp_available_congestion_control</span><br><br></code></pre></td></tr></table></figure><p>返回值一般为：<br>net.ipv4.tcp_available_congestion_control &#x3D; bbr cubic reno</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sysctl net<span class="hljs-selector-class">.ipv4</span><span class="hljs-selector-class">.tcp_congestion_control</span><br><br></code></pre></td></tr></table></figure><p>返回值一般为：<br>net.ipv4.tcp_congestion_control &#x3D; bbr</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sysctl net<span class="hljs-selector-class">.core</span><span class="hljs-selector-class">.default_qdisc</span><br><br></code></pre></td></tr></table></figure><p>返回值一般为：<br>net.core.default_qdisc &#x3D; fq</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 1c">lsmod <span class="hljs-string">| grep bbr</span><br><br></code></pre></td></tr></table></figure><p>返回值有 tcp_bbr 模块即说明bbr已启动。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>风华绝代的樱花草</title>
+    <link href="/2017/09/06/fhjdyhc/"/>
+    <url>/2017/09/06/fhjdyhc/</url>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/19868-0ef746d1d02e4c1e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这也许是姐姐现在的样子"></p><p>大学时代，班里有一位奇女子，由于名字里带有个风字，我们就叫她风华姐姐。<br>风华姐姐在大一那整年，几乎不说话。她在宿舍里很少洗澡，衣服，袜子，都不洗。被子从来不叠。如果她要换衣服，她会将许多天前脱下未洗的衣服再穿起来。而被子，无论冬夏，都是那一条。说到这，可千万别误会了她是从缺水缺氧的高原而来，她是个来自南方大城市的姑娘。</p><span id="more"></span><p>那时的她身上总是带着“奇香”，每每出现，都会令人“闻风丧胆”。大一的时候她的舍友们需要不停和别人解释这个现象解释一整年。</p><p>而最为称奇的事情，要属”夜半无人私语时”,当整个校园一片漆黑，连路灯都不亮的时候。风华姐姐可能正睡不着，她会坐到书桌前，打开电风扇，即使是冬天。开始献唱一曲凄美绝伦的《樱花草》……那毛骨悚然的场景导致了她宿舍女生们的日常失眠。大一时常有睡眠不足的姐妹，在人前控诉，其口述场景的惊悚程度令许多听说的人身临其境，印象深刻。</p><p>她到底为什么这样呢？传说她比我们大了至少3-4岁，复读了好几年，说明她很有理想励志要考上很好的学校，但是她最后还是失败了，我们的学校明显不符合她的期待，导致她日常冷漠。此外还有另一八卦，说她在最后一次复读的时候谈恋爱了，导致学习成绩倒退，但她无所谓了，竟然都想和人私奔了。哪知道人家考上了大学后不理她了。这位姐姐是失去了爱人又失去了理想，极度沮丧的入读我们学校的。我想她不去自杀就谢天谢地了！然而，她的人生遇到我们是注定有转机的…..</p><p>大二那年校园十佳歌手赛，她宿舍的某个人不知是否实在受不了了，想让全校的人都体验一下她夜间那凄美歌声，偷偷替她报了校园歌手赛！姐姐她一开始不愿意，后面还是在一位老师的劝说下去参加的。于是她就唱了那首樱花草！然后她晋级了，16强赛她还是唱樱花草，她进决赛了，当她最后一次唱完樱花草，她得了校园十佳歌手第三名！</p><p>现在好了！一切都好了！她获奖的半个月后，在一堂专业课上，我坐在第一排中间，风华姐姐那天就坐在我旁边。她一见我就面带微笑，说了早上好，还问我最近忙不忙，早上有没有吃早餐。寒暄完这几句，我内心是震惊的！下课后，我同班的，也就是她宿舍的几个女的赶紧跑来问我，风华姐姐对你笑了！你是什么感觉呢？你有没有发现风华姐姐变了？我们告诉你哦，她获奖第二天就开始叠被子了，昨天是周末，她把一个星期的衣服都亲自洗掉了，以前都是我们帮她洗的。</p><p>从那以后风华姐姐的话不但多了一些，而且再也没有愁眉苦脸过，大三那年她亲自去报名十佳歌手赛，还是唱樱花草，这次她止步16强。但是她不沮丧，她变成了日常有微笑的人，学习刻苦，偶尔会和我们接些梗，在宿舍会整理自己的东西了，还经常打扫宿舍的卫生，她的宿舍竟然还在此之后获得了卫生五星宿舍荣誉。这位姐姐后来回家乡，在银行里工作了，据说人缘很不错呢。</p><p>而自从姐姐改变后，她宿舍女生经常性夸张的夸奖姐姐，姐姐似乎就这样成了一位众人口中的女神。并且她和我们班的人都相处的非常融洽，她还常常在上课的时候坐到我的附近对我微笑打招呼，这也成了她们宿舍人另一个梗，她们老开玩笑问我，对风华姐姐有没有感觉？风华姐姐可能喜欢你了。我发现她们宿舍的人心中好像都多了一点自信，尤其提到她的时候好像很自豪的样子。想必她们意识到自己做了多么正确的事情改变了一位姐姐的生活态度。</p><p>记得最后一次见到风华姐姐，是在领了毕业证书准备离校的时候了。风华姐姐向来打扮朴素，即使获奖之后生活状态变化了，这一点也没有变。但那一日，夏季的热风正吹的猛烈，我总觉得能闻到一点淡淡的花香。这时，风华姐姐面带微笑从我身边经过，在相互寒暄了几句将来的打算之后，她便离开了。过了一会，花香味消失了，我忽然意识到了什么。原来，我刚才闻到的香味并不是来自于什么花，而是一种带有花香的洗衣液被太阳晒干后的味道。我心中一笑，想不到那年不洗衣不卫生的奇怪姐姐，现在竟然带着芳香，随风飘散。风华姐姐真是名副其实的风华啊。</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=523289109&auto=1&height=66"></iframe>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>随笔</tag>
+      
+      <tag>回忆录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>随笔</title>
+    <link href="/2017/09/06/suibi/"/>
+    <url>/2017/09/06/suibi/</url>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/19868-9b9c910597a1538a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p><p>深夜了，回头看一看曾经领导的QQ空间，依旧是静悄悄，没有更新…</p><p>最后的说说来自多年前，那句“茶还真象人生哈~种下、培养、会做、懂泡、知品、再好最后都会倒掉！” ，实在令人叹息。那些年，我初出茅庐，时而谨慎，时而癫狂。与同事朋友多有交流，但都止于肤浅。唯独领导的话，可说句句在心。虽然交谈并不频繁，但每回都算有所获益。</p><p>当时环境，日暮西山，同门相盗。作为新人在其中，常怕成为出气筒，小玩具，只好装疯卖傻，哗众取宠以避些许破事。而那时的领导已是令如鸿毛，人在边缘。每日见闻，不是人后非议，便是人前拆台。一开会，便有邪师说法，损友恶评。领导常常要遁形以避，自正视听。</p><p>领导曾言：“年轻时的工作，不免因为经验不足，世面不广导致自己多有怨言。尤其是像你们第一次工作时，往往会有诸事不顺之感。只是错觉，习惯之后，便没有那么多抱怨。这样看来，如果第一份工作就充满困难，反而更有意义，能承受住，则以后诸事淡定。”我先于领导离职，并无关注其心理。事后想来，领导那时是何其孤立，何其忧愁。及至他离开后留下那“人生如茶”的感悟，我才自觉惭愧，为其不平。但那么多年，是有多少冤仇积累，又有何利益瓜葛呢？我不知道。</p><p>这些年，工作生活压力虽大，但心境的确淡定不少。心中总会对领导产生一些怀念，其实，人生若是象茶，其价值又怎在于被倒掉的结果？冲泡时的香气，入口后的回甘，因茶而聚的人，为泡好茶而习得的手法，如是种种都将深植心中，可以传承，可被述说。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>随笔</tag>
+      
+      <tag>回忆录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>献给正在郁闷的人们</title>
+    <link href="/2017/09/06/lstd/"/>
+    <url>/2017/09/06/lstd/</url>
+    
+    <content type="html"><![CDATA[<p><img src="http://www.mbgyw.com/blgimg/rfs/00nlfg/lvstd.jpg" alt="驴生态度"><br>一头老驴，掉到了一个废弃的陷阱里，很深，根本爬不上来，主人看他是老驴，懒得去救他了，让他在那里自生自灭。那头驴一开始也放弃了求生地希望。每天还不断地有人往陷阱里面倒垃圾，按理说老驴应该很生气，应该天天去抱怨，自己倒霉掉到了陷阱里，他的主人不要他，就算死也不让他死得舒服点，每天还有那么多垃圾扔在他旁边。可是有一天，他决定改变他的人生态度（驴生态度更确切点），他每天都把垃圾踩到自己的脚下，从垃圾中找到残羹来维持自己的生命，而不是被垃圾所淹没，终于有一天，他重新回到了地面上。 </p><p>不要抱怨你的专业不好，不要抱怨你的学校不好，不要抱怨你住在破宿舍里，不要抱怨你的男人穷你的女人丑，不要抱怨你没有一个好爸爸，不要抱怨你的工作差，工资少，不要抱怨你空怀一身绝技没人赏识你，现实有太多的不如意，就算生活给你的是垃圾，你同样能把垃圾踩在脚底下，登上世界之巅。这个世界只在乎你是否在到达了一定的高度，而不在乎你是踩在巨人的肩膀上上去的，还是踩在垃圾上上去的。而事实上，踩在垃圾上上去的人更值得尊重。</p><p> 年轻没有失败，看驴生豪迈，不过从头再来……</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>随笔</tag>
+      
+      <tag>励志篇</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>努力发光</title>
+    <link href="/2017/09/06/nlfg/"/>
+    <url>/2017/09/06/nlfg/</url>
+    
+    <content type="html"><![CDATA[<p><embed src="http://www.xiami.com/widget/5627358_3484261/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed></p><pre><code class="hljs">教我们高等数学的老师其实是个哲学家。十多年前，在长江岸边，我们面临着毕业。所有的老师都祝愿我们以后事业有成。但他却在最后的一堂课上说：“最后一堂课，我们随便聊聊吧。”</code></pre><p>　　那是一个下午，阳光很好，教室外的梧桐树华荫如盖，阳光从叶间抛洒下来，他指指一束阳光，问：“你们见到的阳光是现在的吗？”</p><p>我们说：“当然是现在的阳光。”</p><p>　　老师说：“错了，太阳是距离地球最近的恒星，它发出的光线需要走8分钟才能到达地球。我们现在所见到的阳光，是太阳8分钟之前发出，而不是现在。”</p><p>　　我们茫然，但又觉得莫名其妙。我们不知老师为什么要聊天文方面的话题。</p><p>　　老师却继续说，所有的恒星中，有一颗星叫天狼星，它距离我们地球10光年。而牛郎星和织女星，离我们长达27光年。而现在距离我们最远的恒星是8万光年之外。</p><p>　　我们所看到的天穹，都不是现在的模样。我们此刻见到的是10光年之前的天狼星，27光年前的牛郎星和织女星，8万光年之外的外星系。而现在的天狼星，我们在10光年后才能知道。现在的牛郎织女星要在27光年后才知道，最远的外星系，在8万光年之后。</p><p>　　同学们，人生就像天际边的一颗恒星，我希望你们从现在开始，从此刻开始，努力地发光。十年后，二十年后，我就能见到你们的最亮丽的人生。</p><p>　　从来没有一种经历能像这堂课让人刻骨铭心。真的，人的一生要走过许多机关，有时候它的钥匙就藏在一些细如流沙的小故事中，甚至它只是一句话，一个词，一个眼神。</p><p>　　从此我知道，人生就是天穹中的星星，在多年后，要让所有人为你的光彩喝彩，那么现在我们就得努力，让最美好、最灿烂的部位，都发出光来。</p><p><img src="http://www.mbgyw.com/blgimg/rfs/00nlfg/nlfg.jpg" alt="努力发光"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>随笔</tag>
+      
+      <tag>回忆录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
